@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="শিক্ষা দর্পণ with me — শিক্ষা, শেখা ও শিক্ষামূলক তথ্যের জন্য আপনার অনলাইন ঠিকানা। যোগাযোগ: +91 6295861193" />
+  <meta name="theme-color" content="#101a2d" />
+  <title>শিক্ষা দর্পণ with me | শিক্ষা ও শেখার নতুন দিশা</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #101a2d;
+      --navy-soft: #17243b;
+      --blue: #2878f0;
+      --cyan: #45d6c5;
+      --ink: #15233a;
+      --muted: #64748b;
+      --paper: #f5f8fc;
+      --white: #fff;
+      --line: #e4eaf2;
+      --shadow: 0 18px 50px rgba(16, 26, 45, .1);
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Hind Siliguri', sans-serif; color: var(--ink); background: var(--white); line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(228,234,242,.85); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 700; }
+    .brand-mark { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 14px; color: white; font: 700 20px Poppins, sans-serif; background: linear-gradient(135deg, var(--blue), #5b9cff); box-shadow: 0 8px 20px rgba(40,120,240,.25); }
+    .brand-name { font-size: 1.12rem; line-height: 1.15; }
+    .brand-name small { display: block; color: var(--muted); font: 500 .68rem Poppins, sans-serif; letter-spacing: .03em; margin-top: 3px; }
+    .nav-links { display: flex; align-items: center; gap: 30px; font-size: .98rem; font-weight: 600; }
+    .nav-links a:not(.nav-contact):hover { color: var(--blue); }
+    .nav-contact, .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 11px; background: var(--blue); color: white; font-weight: 700; transition: transform .2s, background .2s, box-shadow .2s; }
+    .nav-contact { padding: 10px 17px; }
+    .nav-contact:hover, .button:hover { background: #1766da; transform: translateY(-2px); box-shadow: 0 10px 22px rgba(40,120,240,.24); }
+    .menu-toggle { display: none; width: 43px; height: 43px; border: 1px solid var(--line); background: white; border-radius: 10px; color: var(--ink); font-size: 1.3rem; cursor: pointer; }
+    .hero { position: relative; overflow: hidden; background: radial-gradient(ellipse at 82% 18%, rgba(69,214,197,.17), transparent 32%), radial-gradient(ellipse at 8% 85%, rgba(40,120,240,.2), transparent 34%), var(--navy); color: white; }
+    .hero::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .13; background-image: linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(90deg, transparent, black); }
+    .hero-inner { position: relative; z-index: 1; min-height: 570px; display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 54px; padding-block: 78px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 13px; border: 1px solid rgba(69,214,197,.38); border-radius: 99px; color: #a7fff3; background: rgba(69,214,197,.09); font-size: .9rem; font-weight: 600; }
+    .hero h1 { max-width: 700px; margin: 20px 0 16px; font-size: clamp(2.5rem, 5.3vw, 4.65rem); line-height: 1.16; font-weight: 700; }
+    .hero h1 span { color: var(--cyan); }
+    .hero-copy { max-width: 600px; color: #cbd5e1; font-size: 1.18rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .button { padding: 13px 20px; }
+    .button-outline { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 19px; border: 1px solid rgba(255,255,255,.3); border-radius: 11px; color: white; font-weight: 700; transition: background .2s; }
+    .button-outline:hover { background: rgba(255,255,255,.1); }
+    .hero-card { position: relative; padding: 30px; border: 1px solid rgba(255,255,255,.16); border-radius: 24px; background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.045)); box-shadow: 0 28px 70px rgba(0,0,0,.24); }
+    .hero-card-icon { width: 66px; height: 66px; display: grid; place-items: center; border-radius: 20px; color: var(--navy); background: var(--cyan); font-size: 1.85rem; margin-bottom: 23px; }
+    .hero-card h2 { font-size: 1.55rem; margin-bottom: 9px; }
+    .hero-card p { color: #cbd5e1; }
+    .hero-card-line { height: 1px; background: rgba(255,255,255,.15); margin: 24px 0; }
+    .hero-points { display: grid; gap: 12px; color: #e2e8f0; }
+    .hero-points span { display: flex; gap: 10px; align-items: center; }
+    .hero-points b { color: var(--cyan); font-family: Poppins, sans-serif; }
+    section { scroll-margin-top: 88px; }
+    .section { padding: 88px 0; }
+    .section-heading { max-width: 680px; text-align: center; margin: 0 auto 44px; }
+    .section-kicker { color: var(--blue); text-transform: uppercase; letter-spacing: .12em; font: 700 .78rem Poppins, sans-serif; }
+    .section-heading h2 { color: var(--navy); font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.25; margin: 10px 0; }
+    .section-heading p { color: var(--muted); font-size: 1.08rem; }
+    .topics { background: var(--paper); }
+    .topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .topic-card { min-height: 220px; padding: 27px; background: white; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 8px 24px rgba(16,26,45,.035); transition: transform .2s, box-shadow .2s; }
+    .topic-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .topic-icon { width: 51px; height: 51px; display: grid; place-items: center; border-radius: 15px; color: var(--blue); background: #eaf2ff; font-size: 1.35rem; margin-bottom: 17px; }
+    .topic-card h3 { color: var(--navy); font-size: 1.25rem; margin-bottom: 7px; }
+    .topic-card p { color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 54px; align-items: center; }
+    .about-art { min-height: 340px; position: relative; display: grid; place-items: center; overflow: hidden; border-radius: 24px; background: linear-gradient(145deg, #dceaff, #e5fbf7); }
+    .about-art::before, .about-art::after { content: ''; position: absolute; border-radius: 50%; background: rgba(40,120,240,.1); }
+    .about-art::before { width: 240px; height: 240px; left: -60px; top: -60px; }
+    .about-art::after { width: 180px; height: 180px; right: -40px; bottom: -50px; background: rgba(69,214,197,.28); }
+    .book { position: relative; z-index: 1; width: 170px; height: 190px; display: grid; place-items: center; color: white; font-size: 4.2rem; background: linear-gradient(135deg, var(--blue), #174997); border-radius: 14px 22px 22px 14px; box-shadow: 15px 18px 32px rgba(16,26,45,.2); transform: rotate(-7deg); }
+    .about-copy h2 { color: var(--navy); font-size: clamp(2rem, 3vw, 2.6rem); line-height: 1.25; margin: 8px 0 17px; }
+    .about-copy p { color: var(--muted); font-size: 1.08rem; margin-bottom: 14px; }
+    .about-label { color: var(--blue); font: 700 .78rem Poppins, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+    .contact { background: var(--navy); color: white; }
+    .contact .section-heading h2 { color: white; }
+    .contact .section-heading p { color: #cbd5e1; }
+    .contact-panel { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 30px; border: 1px solid rgba(255,255,255,.15); border-radius: 20px; background: rgba(255,255,255,.06); }
+    .contact-panel h3 { font-size: 1.45rem; margin-bottom: 5px; }
+    .contact-panel p { color: #cbd5e1; }
+    .contact-phone { white-space: nowrap; font: 700 clamp(1.2rem, 3vw, 1.7rem) Poppins, sans-serif; color: var(--cyan); }
+    .contact-phone:hover { text-decoration: underline; }
+    footer { padding: 27px 0; background: #0b1322; color: #aab6c8; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: .92rem; }
+    .footer-inner a { color: white; }
+    @media (max-width: 800px) {
+      .menu-toggle { display: grid; place-items: center; }
+      .nav-links { display: none; position: absolute; top: 76px; left: 0; right: 0; padding: 18px 20px 24px; flex-direction: column; align-items: stretch; gap: 15px; background: white; border-bottom: 1px solid var(--line); box-shadow: 0 15px 24px rgba(16,26,45,.08); }
+      .nav-links.open { display: flex; }
+      .nav-contact { justify-content: center; }
+      .hero-inner { grid-template-columns: 1fr; gap: 38px; min-height: auto; padding-block: 65px; }
+      .hero-card { max-width: 540px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-art { min-height: 280px; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(100% - 30px, 1120px); }
+      .hero h1 { font-size: clamp(2.35rem, 12vw, 3.5rem); }
+      .topic-grid { grid-template-columns: 1fr; }
+      .topic-card { min-height: auto; }
+      .section { padding: 66px 0; }
+      .contact-panel { align-items: flex-start; flex-direction: column; padding: 24px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="শিক্ষা দর্পণ with me হোম">
+        <span class="brand-mark" aria-hidden="true">শি</span>
+        <span class="brand-name">শিক্ষা দর্পণ<small>SHIKSHA DARPAN WITH ME</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="মেনু খুলুন" aria-expanded="false" aria-controls="navigation">☰</button>
+      <nav class="nav-links" id="navigation" aria-label="প্রধান মেনু">
+        <a href="#home">হোম</a>
+        <a href="#topics">আমাদের বিষয়</a>
+        <a href="#about">আমাদের সম্পর্কে</a>
+        <a class="nav-contact" href="#contact">যোগাযোগ <span aria-hidden="true">→</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <div>
+          <span class="eyebrow"><span aria-hidden="true">✦</span> শেখার পথে আপনার সঙ্গী</span>
+          <h1>শিক্ষার আলোয়<br /><span>এগিয়ে চলুন</span></h1>
+          <p class="hero-copy">শিক্ষা, শেখা ও দরকারি শিক্ষামূলক তথ্যকে সহজভাবে জানার জন্য স্বাগতম শিক্ষা দর্পণ with me-তে। জ্ঞান ভাগ করে নেওয়া এবং একসঙ্গে এগিয়ে যাওয়াই আমাদের লক্ষ্য।</p>
+          <div class="hero-actions">
+            <a class="button" href="#topics">আরও জানুন <span aria-hidden="true">→</span></a>
+            <a class="button-outline" href="tel:+916295861193"><span aria-hidden="true">☎</span> +91 6295861193</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="শিক্ষা দর্পণ পরিচিতি">
+          <div class="hero-card-icon" aria-hidden="true">▤</div>
+          <h2>জ্ঞান হোক সহজ, শেখা হোক আনন্দের</h2>
+          <p>শিক্ষার্থী, শিক্ষক এবং শিক্ষা-আগ্রহী সবার জন্য একটি আন্তরিক শিক্ষামূলক ঠিকানা।</p>
+          <div class="hero-card-line"></div>
+          <div class="hero-points">
+            <span><b>✓</b> সহজ ও উপযোগী শিক্ষামূলক বিষয়</span>
+            <span><b>✓</b> শেখার আগ্রহকে উৎসাহিত করা</span>
+            <span><b>✓</b> সরাসরি যোগাযোগের সুযোগ</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section topics" id="topics">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">আমাদের বিষয়</span>
+          <h2>শেখার নানা দিক, এক ঠিকানায়</h2>
+          <p>আপনার শেখার যাত্রাকে সহায়তা করতে আমরা শিক্ষার সঙ্গে যুক্ত দরকারি বিষয়গুলো সহজভাবে তুলে ধরতে চাই।</p>
+        </div>
+        <div class="topic-grid">
+          <article class="topic-card">
+            <div class="topic-icon" aria-hidden="true">▣</div>
+            <h3>শিক্ষামূলক তথ্য</h3>
+            <p>পড়াশোনা ও শিক্ষা-সম্পর্কিত বিষয় সম্পর্কে জানুন সহজ ভাষায়।</p>
+          </article>
+          <article class="topic-card">
+            <div class="topic-icon" aria-hidden="true">✎</div>
+            <h3>শেখার সহায়তা</h3>
+            <p>নতুন কিছু শেখার আগ্রহ তৈরি করুন এবং জ্ঞানচর্চা চালিয়ে যান।</p>
+          </article>
+          <article class="topic-card">
+            <div class="topic-icon" aria-hidden="true">◎</div>
+            <h3>শিক্ষা-আলোচনা</h3>
+            <p>শিক্ষা নিয়ে ভাবনা, অভিজ্ঞতা ও প্রশ্ন ভাগ করে নেওয়ার একটি জায়গা।</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-art" aria-hidden="true"><div class="book">▤</div></div>
+        <div class="about-copy">
+          <span class="about-label">আমাদের সম্পর্কে</span>
+          <h2>শিক্ষা সবার কাছে পৌঁছে দেওয়ার প্রত্যয়</h2>
+          <p>শিক্ষা দর্পণ with me একটি শিক্ষামূলক প্ল্যাটফর্ম। সহজভাবে শেখা, প্রয়োজনীয় তথ্য জানা এবং শিক্ষার প্রতি আগ্রহ বাড়ানোর উদ্দেশ্যে এই ওয়েবসাইট তৈরি করা হয়েছে।</p>
+          <p>আপনার মতামত বা কোনো প্রশ্ন থাকলে আমাদের সঙ্গে সরাসরি যোগাযোগ করুন।</p>
+          <a class="button" href="#contact">যোগাযোগ করুন <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker" style="color: var(--cyan)">যোগাযোগ</span>
+          <h2>আপনার সঙ্গে কথা বলতে চাই</h2>
+          <p>কোনো প্রশ্ন, পরামর্শ বা মতামত থাকলে ফোন করুন। আমরা আপনার কথা শুনতে আগ্রহী।</p>
+        </div>
+        <div class="contact-panel">
+          <div>
+            <h3>ফোনে যোগাযোগ</h3>
+            <p>সরাসরি কল করতে নিচের নম্বরে চাপ দিন।</p>
+          </div>
+          <a class="contact-phone" href="tel:+916295861193">+91 6295861193</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> শিক্ষা দর্পণ with me. সর্বস্বত্ব সংরক্ষিত।</span>
+      <a href="tel:+916295861193">যোগাযোগ: +91 6295861193</a>
+    </div>
+  </footer>
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'মেনু বন্ধ করুন' : 'মেনু খুলুন');
+      menuButton.textContent = isOpen ? '×' : '☰';
+    });
+    navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      navigation.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'মেনু খুলুন');
+      menuButton.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
